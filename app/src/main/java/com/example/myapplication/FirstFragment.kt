@@ -23,6 +23,7 @@ class FirstFragment : Fragment() {
     private lateinit var nameTxt: TextInputEditText
     private lateinit var addressTxt: TextInputEditText
     private lateinit var btn: Button
+    private lateinit var secondButton: Button
     private lateinit var radioBtn1: RadioButton
     private lateinit var radioBtn2: RadioButton
     private lateinit var radioBtn3: RadioButton
@@ -49,6 +50,7 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        secondButton=requireView().findViewById<Button>(R.id.button_second)
         btn = requireView().findViewById(R.id.button_first)
         radioBtn1 = requireView().findViewById(R.id.radio_button_1)
         radioBtn2 = requireView().findViewById(R.id.radio_button_2)
@@ -59,6 +61,10 @@ class FirstFragment : Fragment() {
         surnameTxt = requireView().findViewById(R.id.surname)
         nameTxt = requireView().findViewById(R.id.name)
         addressTxt = requireView().findViewById(R.id.address)
+
+        secondButton.setOnClickListener{
+            val intent=Intent(requireContext(),RecyclerActivity::class.java)
+        }
 
         btn.setOnClickListener {
             val surname = surnameTxt.text.toString()
